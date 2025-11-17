@@ -278,12 +278,7 @@ The analytics system provides deep insights into learning patterns:
 ✅ Community and social features
 ✅ Recognized certificates of completion
 
----
-
-##  License
-
-MIT License - Open source and available for educational and commercial use.
 
 ---
 
-**MindSphere AI** - Transforming Education with Artificial Intelligence 🚀
+**Team MindSphere AI** - Transforming Education with Artificial Intelligence 🚀

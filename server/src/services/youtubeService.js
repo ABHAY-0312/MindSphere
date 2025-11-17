@@ -20,6 +20,9 @@ const getVideoDuration = async (videoId) => {
     const response = await fetch(`${YOUTUBE_API_BASE_URL}/videos?${params}`);
     const data = await response.json();
 
+    console.log('YouTube API Request URL:', `${YOUTUBE_API_BASE_URL}/videos?${params}`);
+    console.log('YouTube API Response:', data);
+
     if (data.items && data.items.length > 0) {
       const duration = data.items[0].contentDetails.duration;
       // Convert ISO 8601 duration to seconds
@@ -27,6 +30,10 @@ const getVideoDuration = async (videoId) => {
       const hours = (parseInt(match[1]) || 0) * 3600;
       const minutes = (parseInt(match[2]) || 0) * 60;
       const seconds = parseInt(match[3]) || 0;
+      
+      console.log('Video Duration (seconds):', hours + minutes + seconds);
+      console.log('Video Duration (formatted):', duration);
+      
       return hours + minutes + seconds;
     }
     return 0;

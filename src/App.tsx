@@ -74,6 +74,37 @@ function App() {
     loadUserCourses();
   }, []);
 
+  // Validate token and initialize user on app start
+  useEffect(() => {
+    const initializeAuth = async () => {
+      const token = getToken();
+      console.log('Retrieved token:', token); // Debug log for token retrieval
+
+      if (token) {
+        try {
+          // Validate token by fetching user data
+          const userData = await (await fetch('/api/auth/me', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            }
+          })).json();
+          console.log('User data fetched successfully:', userData); // Debug log for API response
+          
+          setUser(userData);
+        } catch (error) {
+          console.error('Token validation failed:', error);
+          removeToken();
+        }
+      } else {
+        console.log('No token found in localStorage.');
+      }
+    };
+
+    initializeAuth();
+  }, []);
+
   // Save user to localStorage whenever user changes
   useEffect(() => {
     if (user) {

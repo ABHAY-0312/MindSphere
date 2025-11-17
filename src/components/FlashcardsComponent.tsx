@@ -117,7 +117,7 @@ const FlashcardsComponent: React.FC<FlashcardsComponentProps> = ({ flashcards, o
         </div>
       </div>
 
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Flashcard */}
         <div 
           className="relative h-80 mb-8 cursor-pointer"
@@ -166,6 +166,7 @@ const FlashcardsComponent: React.FC<FlashcardsComponentProps> = ({ flashcards, o
             </button>
             
             <button
+              aria-label="Reveal Answer"
               onClick={handleFlip}
               className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
@@ -205,7 +206,7 @@ const FlashcardsComponent: React.FC<FlashcardsComponentProps> = ({ flashcards, o
         )}
       </div>
 
-      <style jsx>{`
+      <style>{`
         .transform-style-preserve-3d {
           transform-style: preserve-3d;
         }

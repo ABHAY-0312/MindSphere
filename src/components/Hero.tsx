@@ -57,6 +57,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <button
+              aria-label="Create Your First Course"
               onClick={onGetStarted}
               className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center space-x-2"
             >

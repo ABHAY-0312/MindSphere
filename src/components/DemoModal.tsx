@@ -46,6 +46,7 @@ const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
             <p className="text-gray-600">Transform any content into interactive courses in minutes</p>
           </div>
           <button
+            aria-label="Close Demo Modal"
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
           >

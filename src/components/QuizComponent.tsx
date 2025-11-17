@@ -254,7 +254,7 @@ const QuizComponent: React.FC<QuizComponentProps> = ({ quizzes, onComplete, cour
   }
 
   return (
-    <div>
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="mb-8">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-bold text-gray-900">{currentQuiz.title}</h2>
@@ -308,6 +308,7 @@ const QuizComponent: React.FC<QuizComponentProps> = ({ quizzes, onComplete, cour
 
           <div className="flex justify-end">
             <button
+              aria-label="Submit Answer"
               onClick={handleNext}
               disabled={!selectedAnswer}
               className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"

@@ -20,7 +20,34 @@ const CourseCatalog: React.FC<CourseCatalogProps> = ({ onCourseSelect, enrolledC
     const fetchCatalog = async () => {
       try {
         const courses = await catalogApi.getAll();
-        setCatalogCourses(courses);
+        const transformedCourses = courses.map((course: any) => ({
+          id: course.id || '',
+          title: course.title || 'Untitled',
+          description: course.description || 'No description available.',
+          instructor: course.instructor || 'Unknown',
+          category: course.category || 'General',
+          level: course.level || 'Beginner',
+          rating: course.rating || 0,
+          studentsEnrolled: course.studentsEnrolled || 0,
+          thumbnail: course.thumbnail || '',
+          duration: course.duration || '0h',
+          totalLessons: course.totalLessons || 0,
+          whatYouLearn: Array.isArray(course.whatYouLearn) ? course.whatYouLearn : [],
+          requirements: Array.isArray(course.requirements) ? course.requirements : [],
+          lessons: Array.isArray(course.lessons) ? course.lessons : [],
+          notes: Array.isArray(course.notes) ? course.notes : [],
+          topics: Array.isArray(course.topics) ? course.topics : [],
+          source: course.source || 'unknown',
+          progress: course.progress || 0,
+          quizzes: Array.isArray(course.quizzes) ? course.quizzes : [],
+          flashcards: Array.isArray(course.flashcards) ? course.flashcards : [],
+          createdAt: course.createdAt ? new Date(course.createdAt) : new Date(),
+          updatedAt: course.updatedAt ? new Date(course.updatedAt) : new Date(),
+          summary: course.summary || '',
+          completedLessons: course.completedLessons || 0,
+          certificate: course.certificate || false,
+        }));
+        setCatalogCourses(transformedCourses);
       } catch (error) {
         console.error('Error fetching catalog:', error);
       } finally {
